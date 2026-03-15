@@ -1,0 +1,24 @@
+{
+  "version": "1.0",
+  "created": "2026-03-14",
+  "self_improvement": {
+    "enabled": true,
+    "trigger_keywords": ["能力不足", "有差距", "不够", "补齐", "学习"],
+    "auto_search_skills": true,
+    "auto_install": true
+  },
+  "capabilities": {
+    "stock_analysis": {
+      "fundamental": true,
+      "technical": true,
+      "trading_signals": true,
+      "paper_trading": true,
+      "alerts": true
+    }
+  },
+  "todo": [
+    "监控股票分析效果，收集反馈",
+    "按需添加量化回测功能",
+    "按需添加新闻情绪分析"
+  ]
+}

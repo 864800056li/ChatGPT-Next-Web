@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  wxhelper:
+    image: jwping/wxhelper:latest
+    container_name: wechat-bot
+    restart: unless-stopped
+    ports:
+      - "19088:19088"
+      - "19089:19089"
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    environment:
+      - WX_PORT=19088
+      - HTTP_PORT=19089
+    networks:
+      - wechat-net
+
+  # 可选：Redis 用于缓存
+  redis:
+    image: redis:7-alpine
+    container_name: wechat-redis
+    restart: unless-stopped
+    volumes:
+      - redis-data:/data
+    networks:
+      - wechat-net
+
+networks:
+  wechat-net:
+    driver: bridge
+
+volumes:
+  redis-data:

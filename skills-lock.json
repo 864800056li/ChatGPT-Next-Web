@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "skills": {
+    "agent-tools": {
+      "source": "inference-sh/skills",
+      "sourceType": "github",
+      "computedHash": "b7dc4bc5a5fe0aee778ed86e3a24cbf8c26377cf0c7e57c7b5cba63f6a23bb00"
+    },
+    "ai-image-generation": {
+      "source": "inference-shell/skills",
+      "sourceType": "github",
+      "computedHash": "f9aaafa98c07b3fa4d3f15dc82a7a22a66c1459a0413e09f9a85e84b8dfb1a98"
+    },
+    "akshare-stock": {
+      "source": "molezzz/openclaw-stock-skill",
+      "sourceType": "github",
+      "computedHash": "1651472ea21359ea7be2a5aa5d41a9764f1a75fc45ccf9de27fdda1ffa17a742"
+    },
+    "china-stock-analysis": {
+      "source": "sugarforever/01coder-agent-skills",
+      "sourceType": "github",
+      "computedHash": "a7de1ec48a7a46867eccaa927cb100c4e3c248c71f5266762d7fdecd65558cd9"
+    },
+    "stock-analysis": {
+      "source": "gracefullight/stock-checker",
+      "sourceType": "github",
+      "computedHash": "bcd3abe47bd81a2c39b77fd3f116f98ff1f30ffe2604fc4189fd5d717581ff00"
+    }
+  }
+}

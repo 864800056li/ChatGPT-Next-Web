@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "skills": {
+    "self-improving-agent": {
+      "version": "3.0.2",
+      "installedAt": 1773575029455
+    },
+    "github": {
+      "version": "1.0.0",
+      "installedAt": 1773575248552
+    },
+    "find-skills": {
+      "version": "0.1.0",
+      "installedAt": 1773575262506
+    },
+    "nano-pdf": {
+      "version": "1.0.0",
+      "installedAt": 1773575267784
+    },
+    "humanizer": {
+      "version": "1.0.0",
+      "installedAt": 1773575272832
+    },
+    "obsidian": {
+      "version": "1.0.0",
+      "installedAt": 1773575282479
+    },
+    "gog": {
+      "version": "1.0.0",
+      "installedAt": 1773575300909
+    },
+    "free-ride": {
+      "version": "1.0.4",
+      "installedAt": 1773575306504
+    },
+    "api-gateway": {
+      "version": "1.0.69",
+      "installedAt": 1773575321637
+    },
+    "auto-updater": {
+      "version": "1.0.0",
+      "installedAt": 1773575334877
+    },
+    "openai-whisper": {
+      "version": "1.0.0",
+      "installedAt": 1773575340406
+    },
+    "agent-browser": {
+      "version": "0.2.0",
+      "installedAt": 1773575380507
+    },
+    "feishu-doc": {
+      "version": "1.2.7",
+      "installedAt": 1773575388311
+    },
+    "youtube-transcript": {
+      "version": "1.0.1",
+      "installedAt": 1773575393768
+    },
+    "remind": {
+      "version": "1.0.0",
+      "installedAt": 1773575415841
+    }
+  }
+}

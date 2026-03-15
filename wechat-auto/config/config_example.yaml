@@ -1,0 +1,75 @@
+# 企业微信自动回复系统 - 示例配置文件
+# 复制为 config.yaml 并修改以下内容：
+
+wecom:
+  corp_id: "wwxxxxxxxxxxxxxxx"          # 替换：你的企业ID（在企微后台查看）
+  secret: "xxxxxxxxxxxxxxxxxxxxxxxxxxxx" # 替换：你的应用Secret
+  agent_id: 1000002                     # 替换：你的应用ID
+
+# 消息处理配置
+message:
+  # 关键词触发规则 - 根据你的业务修改
+  keyword_triggers:
+    # 价格相关
+    - keywords: ["价格", "多少钱", "报价", "cost", "price", "价位"]
+      reply: "您好！我们的产品价格根据配置不同：\n• 基础版：100元/月\n• 专业版：300元/月\n• 企业版：800元/月\n请告诉我您需要的功能，给您详细报价。"
+    
+    # 发货相关
+    - keywords: ["发货", "配送", "多久到", "delivery", "shipping", "快递"]
+      reply: "付款后24小时内发货，顺丰/京东快递，大部分地区2-3天送达。偏远地区可能需要4-5天。"
+    
+    # 客服相关
+    - keywords: ["客服", "人工", "联系你们", "电话", "customer service"]
+      reply: "如需人工客服：\n• 电话：400-xxx-xxxx（工作日9:00-18:00）\n• 邮件：support@example.com\n• 留言我会转达，客服会尽快联系您。"
+    
+    # 功能相关
+    - keywords: ["功能", "feature", "做什么", "能干嘛"]
+      reply: "主要功能：\n1. 数据同步与备份\n2. 团队协作管理\n3. 自动化工作流\n4. 数据分析报表\n需要了解哪个功能的详细信息？"
+    
+    # 问候语
+    - keywords: ["你好", "您好", "hello", "hi", "在吗", "在吗？"]
+      reply: "👋 您好！我是智能助手，有什么可以帮您？"
+    
+    # 感谢
+    - keywords: ["谢谢", "感谢", "thanks", "thank you"]
+      reply: "不客气！很高兴为您服务，有问题随时找我。"
+    
+    # 告别
+    - keywords: ["再见", "拜拜", "88", "bye", "goodbye"]
+      reply: "再见！祝您一切顺利，有问题随时回来。"
+  
+  # 文档知识库检索（需要安装PyPDF2/python-docx）
+  enable_document_retrieval: false
+  document_path: "./data/documents/"  # 放入PDF/Word/TXT/MD文档
+  
+  # 历史聊天学习
+  enable_chat_history_learning: false
+  chat_history_path: "./data/history/"  # 放入JSON/CSV/TXT格式的历史对话
+
+# 日志配置
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "./logs/wechat_auto.log"
+
+# 安全配置
+security:
+  allowed_users: []  # 允许触发自动回复的用户列表，空表示全部用户
+  blacklist: []      # 黑名单用户ID
+  
+  # 防骚扰设置
+  rate_limit:
+    messages_per_minute: 10  # 每分钟最多处理10条消息
+    cooldown_seconds: 30     # 连续触发后的冷却时间
+
+# 高级功能（后续扩展）
+advanced:
+  # 是否使用大模型增强回复（需要配置API）
+  enable_llm_enhancement: false
+  llm_provider: "openai"  # openai, azure, local
+  llm_model: "gpt-3.5-turbo"
+  
+  # 是否启用情感分析
+  enable_sentiment_analysis: false
+  
+  # 是否学习新回复模式
+  enable_continuous_learning: true

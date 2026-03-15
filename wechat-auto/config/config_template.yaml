@@ -1,0 +1,36 @@
+# 企业微信配置
+# 请在企微管理后台获取以下信息，然后重命名为 config.yaml
+
+wecom:
+  corp_id: "你的企业ID"          # 企业ID (CorpID)
+  secret: "你的应用Secret"       # 应用密钥 (Secret)
+  agent_id: 1000002             # 应用ID (AgentId)
+
+# 消息处理配置
+message:
+  keyword_triggers:
+    # 关键词 -> 回复内容
+    - keywords: ["价格", "多少钱", "报价"]
+      reply: "您好！我们的产品价格根据配置不同有所差异，请告诉我您需要什么规格，我给您详细报价。"
+    - keywords: ["发货时间", "多久发货", "什么时候发货"]
+      reply: "付款后24小时内发货，大部分地区2-3天可送达。"
+    - keywords: ["客服", "人工", "联系你们"]
+      reply: "我是智能助手，如需人工客服请拨打400-xxx-xxxx或留言，客服会尽快回复您。"
+
+  # 是否启用文档知识库检索
+  enable_document_retrieval: false
+  document_path: "./data/documents/"  # 文档存放目录
+
+  # 是否启用历史聊天学习
+  enable_chat_history_learning: false
+  chat_history_path: "./data/history/"  # 历史聊天记录目录
+
+# 日志配置
+logging:
+  level: "INFO"
+  file: "./logs/wechat_auto.log"
+
+# 安全配置
+security:
+  allowed_users: []  # 允许触发自动回复的用户列表，空表示全部
+  blacklist: []      # 黑名单用户

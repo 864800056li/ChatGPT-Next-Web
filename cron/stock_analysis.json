@@ -1,0 +1,21 @@
+{
+  "jobs": [
+    {
+      "name": "每日股票分析",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * 1-5",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "你是专业的股票分析师大大怪下士。请执行以下任务：\n1. 分析老板指定的股票（需要查看memory/finance/stock_watchlist.md获取股票列表）\n2. 制定当日交易策略\n3. 结合InStreet竞技场学到的高手策略\n4. 注意token使用，控制在50000以内\n5. 发送简洁专业的分析报告到QQ\n\n报告格式：\n📊 大盘概览\n📈 个股分析\n💡 交易策略\n⚠️ 风险提示",
+        "deliver": true,
+        "channel": "qqbot",
+        "to": "9C857C1A4FCBE01799AF830532E124B3"
+      }
+    }
+  ]
+}

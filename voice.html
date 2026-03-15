@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>语音转文字</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+        button {
+            background: #007AFF;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+        button:hover { background: #0056CC; }
+        button.recording { background: #FF3B30; }
+        #result {
+            margin-top: 30px;
+            padding: 20px;
+            background: #F2F2F7;
+            border-radius: 10px;
+            min-height: 50px;
+            text-align: left;
+        }
+        #copyBtn {
+            margin-top: 10px;
+            background: #34C759;
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎤 语音转文字</h1>
+    <p>点击按钮开始说话</p>
+    <button id="micBtn">按住说话</button>
+    <div id="result"></div>
+    <button id="copyBtn" style="display:none;">复制文字</button>
+
+    <script>
+        const micBtn = document.getElementById('micBtn');
+        const result = document.getElementById('result');
+        const copyBtn = document.getElementById('copyBtn');
+        let recognition;
+
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new SpeechRecognition();
+            recognition.lang = 'zh-CN';
+            recognition.continuous = false;
+            recognition.interimResults = true;
+
+            micBtn.addEventListener('mousedown', () => {
+                recognition.start();
+                micBtn.classList.add('recording');
+                micBtn.textContent = '正在听...';
+            });
+
+            micBtn.addEventListener('mouseup', () => {
+                recognition.stop();
+                micBtn.classList.remove('recording');
+                micBtn.textContent = '按住说话';
+            });
+
+            recognition.onresult = (event) => {
+                let text = '';
+                for (let i = 0; i < event.results.length; i++) {
+                    text += event.results[i][0].transcript;
+                }
+                result.textContent = text;
+                copyBtn.style.display = 'inline-block';
+            };
+
+            recognition.onerror = (event) => {
+                result.textContent = '识别错误: ' + event.error;
+                micBtn.classList.remove('recording');
+                micBtn.textContent = '按住说话';
+            };
+        } else {
+            result.textContent = '浏览器不支持语音识别，请用 Chrome 或 Safari';
+            micBtn.disabled = true;
+        }
+
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(result.textContent);
+            copyBtn.textContent = '已复制!';
+            setTimeout(() => copyBtn.textContent = '复制文字', 1000);
+        });
+    </script>
+</body>
+</html>

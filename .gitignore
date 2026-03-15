@@ -1,0 +1,12 @@
+node_modules/
+*.log
+.DS_Store
+.env
+
+# 大文件排除
+wechat-bot/node_modules/puppeteer/.local-chromium/
+wechat-bot/onebot/onebot
+wechat-bot/node_modules/@swc/core-darwin-arm64/
+*.dylib
+*.node
+Chromium*
